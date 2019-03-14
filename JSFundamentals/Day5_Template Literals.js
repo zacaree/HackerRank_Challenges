@@ -5,12 +5,13 @@
 // literals: The tagged template literal's array of strings.
 // expressions: The tagged template literal's array of expression values (i.e., [area, perimeter]).
 
-// WORK IN PROGRESS
 function sides(literals, ...expressions) {
   const [a, p] = expressions;
   const main = Math.sqrt(p * p - 16 * a);
-  let s1 = (p + main) / 4;
-  let s2 = (p - main) / 4;
-  console.log([s1, s2]);
-  // return [s1, s2];
+  const output = [];
+  const s1 = (p + main) / 4;
+  const s2 = (p - main) / 4;
+  output.push(s1);
+  output.push(s2);
+  return output.sort((a, b) => a + b);
 }
