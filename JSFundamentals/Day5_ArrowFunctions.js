@@ -1,5 +1,5 @@
-// Modify and return the array so that all even elements are doubled
-// and all odd elements are tripled.
+// Modify and return the given array so that all even numbers are doubled
+// and all odd numbers are tripled.
 
 const numbers = [1, 2, 3, 4, 5];
 
