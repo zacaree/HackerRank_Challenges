@@ -1,7 +1,4 @@
-// Work in progress!!!
-
-const numsInSequence = [5, 8, 2];
-const maxBitwiseAllowed = [2, 5, 2];
+const q = ["5 2", "8 5", "2 2"];
 
 function getMaxLessThanK(n, k) {
   let maxResult = 0;
@@ -15,7 +12,11 @@ function getMaxLessThanK(n, k) {
       }
     }
   }
+  console.log(maxResult); // Just to see the result in the console.
   return maxResult;
 }
 
-getMaxLessThanK();
+q.forEach(set => {
+  [n, k] = set.split(" "); // Destructuring what is split into variables n and k.
+  getMaxLessThanK(n, k);
+});
