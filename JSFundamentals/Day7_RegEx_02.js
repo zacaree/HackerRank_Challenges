@@ -1,22 +1,20 @@
-// WORK IN PROGRESS!!!
-// WORK IN PROGRESS!!!
-// WORK IN PROGRESS!!!
-
-// const prefixes = ^(["Mr."|"Mrs."|"Ms."|"Dr."|"Er."])
+const n1 = "Dr.Pepper";
+const n2 = "Mr.X";
+const n3 = "Mrs.Y";
+const n4 = "Ms. Y";
 
 //  ^ => first item matches:
 // () => stores matching value captured within
-// [aeiou] => matches any of the characters in the brackets
-// . => matches any character:
-// * => for 0 or more occurrances
-// \1 => matches to previously stored match.
-////// \2 would look for matched item stored 2 instances ago
-////// \3 would look for matched item stored 3 ago, etc
+// | => Mr or Mrs or etc
+// \. => backslash escapes the . so that . is read as a char
+// [] => allows a range from a-z upper and lowercase
+// + => there must be one or more of the preceding rule.
+// / /In this case that means at least one char.
 // $ ensures that matched item is at end of the sequence
 
-const firstAndLast_SameVowel = /^([aeiou]).*\1$/;
+const namePrefixTest = /^(Mr|Mrs|Ms|Dr|Er)(\.)([a-zA-Z])+$/;
 
-const firstAndLast_SameVowel = /^(Mr\.|Mrs\.|Ms\.|Dr\.|Er\.)/;
-
-console.log(firstAndLast_SameVowel.test(s1));
-console.log(firstAndLast_SameVowel.test(s2));
+console.log(namePrefixTest.test(n1));
+console.log(namePrefixTest.test(n2));
+console.log(namePrefixTest.test(n3));
+console.log(namePrefixTest.test(n4));
