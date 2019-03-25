@@ -1,19 +1,19 @@
-const res = document.getElementById("display");
+const res = document.querySelector(".display");
 const btns = [...document.querySelectorAll("button")];
 
 const ops = {
   "+": (a, b) => a + b,
   "-": (a, b) => a - b,
-  "*": (a, b) => a * b,
-  "/": (a, b) => Math.floor(a / b)
+  "×": (a, b) => a * b,
+  "÷": (a, b) => Math.floor(a / b)
 };
 
 function action(e) {
   let pressed = document.getElementById(e.target.id);
   if (pressed.id === "btnSum") res.innerHTML += "+";
   if (pressed.id === "btnSub") res.innerHTML += "-";
-  if (pressed.id === "btnMul") res.innerHTML += "*";
-  if (pressed.id === "btnDiv") res.innerHTML += "/";
+  if (pressed.id === "btnMul") res.innerHTML += "×";
+  if (pressed.id === "btnDiv") res.innerHTML += "÷";
   if (pressed.id === "btn0") res.innerHTML += "0";
   if (pressed.id === "btn1") res.innerHTML += "1";
   if (pressed.id === "btnClr") res.innerHTML = "";
@@ -28,3 +28,16 @@ function action(e) {
 }
 
 btns.forEach(btn => btn.addEventListener("click", action));
+
+//
+
+// Accessibility – Hides focus outline on elements unless tab is pressed.
+function handleFirstTab(e) {
+  // the "I am a keyboard user" key
+  if (e.keyCode === 9) {
+    document.body.classList.add("user-is-tabbing");
+    window.removeEventListener("keydown", handleFirstTab);
+  }
+}
+
+window.addEventListener("keydown", handleFirstTab);
