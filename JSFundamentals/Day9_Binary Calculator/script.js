@@ -1,18 +1,23 @@
+const res = document.getElementById("res");
+const btns = [...document.querySelectorAll("button")];
+
 let memory = 0;
-let currentExp;
+let currentExp = "";
 
 function action(e) {
   let pressed = document.getElementById(e.target.id);
-  if (pressed.id === "btn1") currentExp.innerHTML += 1;
-  if (pressed.id === "btnSum") currentExp.innerHTML += "+";
-  if (pressed.id === "btnEql") evaluate(currentExp);
+  if (pressed.id === "btn1") {
+    currentExp += "1";
+    res.innerHTML = currentExp;
+  }
+  if (pressed.id === "btnSum") {
+    currentExp += "+";
+    res.innerHTML = currentExp;
+  }
+  if (pressed.id === "btnEql") {
+    currentExp = eval(currentExp);
+    res.innerHTML = currentExp;
+  }
 }
 
-const btns = [...document.querySelectorAll("button")];
 btns.forEach(btn => btn.addEventListener("click", action));
-
-function evaluate(exp) {
-  return eval(exp);
-}
-
-// document.getElementById("btn0").addEventListener("click", action);
