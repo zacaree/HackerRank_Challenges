@@ -1,3 +1,9 @@
+//
+//
+// ========================
+// Calculator Logic Section
+// ========================
+
 const res = document.querySelector(".display");
 const btns = [...document.querySelectorAll("button")];
 
@@ -30,8 +36,12 @@ function action(e) {
 btns.forEach(btn => btn.addEventListener("click", action));
 
 //
+//
+// ========================
+// Accessibility Section
+// ========================
 
-// Accessibility – Hides focus outline on elements unless tab is pressed.
+// Hides focus outline on elements unless tab is pressed.
 function handleFirstTab(e) {
   // the "I am a keyboard user" key
   if (e.keyCode === 9) {
@@ -41,3 +51,14 @@ function handleFirstTab(e) {
 }
 
 window.addEventListener("keydown", handleFirstTab);
+
+//
+//
+// ========================
+// Animation Section
+// ========================
+
+// Make the light blink at the beginning
+const light = document.querySelector(".light");
+const blink = setInterval(() => light.classList.toggle("dim"), 200);
+setTimeout(() => clearInterval(blink), 2000);

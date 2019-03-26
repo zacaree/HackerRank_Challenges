@@ -64,11 +64,12 @@ body {
   height: 4px;
   background-color: #00ffba;
   box-shadow: 0 0 8px 1px hsla(170, 100%, 70%, 0.7), 0 0 16px hsla(170, 100%, 62%, 0.98);
-  animation-name: pulse;
-  animation-duration: 3s;
-  animation-timing-function: ease-in-out;
-  animation-direction: alternate;
-  animation-iteration-count: infinite;
+  transition: opacity 0.02s ease-in;
+  opacity: 1;
+}
+
+.dim {
+  opacity: 0.08;
 }
 
 .display {
@@ -135,13 +136,4 @@ button:active {
 /* For use with JS */
 body:not(.user-is-tabbing) button:focus {
   outline: none;
-}
-
-@keyframes pulse {
-  0% {
-    opacity: 1;
-  }
-  100% {
-    opacity: 0.08;
-  }
 }
