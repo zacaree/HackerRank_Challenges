@@ -1,8 +1,19 @@
 // Test 0
-const q0 = [2, 1, 5, 3, 4];
+const q0 = [[2, 1, 5, 3, 4], [2, 5, 1, 3, 4]];
+// Expected output:
+// 3
+// Too chaotic
 
 // Test 1
-const q1 = [2, 5, 1, 3, 4];
+const q0 = [[5, 1, 2, 3, 7, 8, 6, 4], [1, 2, 5, 3, 7, 8, 6, 4]];
+// Expected output:
+// 3
+// Too chaotic
+
+// Test 2
+const q0 = [1, 2, 5, 3, 4, 7, 8, 6];
+// Expected output:
+// 4
 
 //
 
