@@ -1,17 +1,20 @@
-// Test 0
-const q0 = [[2, 1, 5, 3, 4], [2, 5, 1, 3, 4]];
+// Test 0 ✅
+const q0a = [2, 1, 5, 3, 4];
+const q0b = [2, 5, 1, 3, 4];
 // Expected output:
 // 3
 // Too chaotic
 
 // Test 1
-const q0 = [[5, 1, 2, 3, 7, 8, 6, 4], [1, 2, 5, 3, 7, 8, 6, 4]];
+const q1a = [5, 1, 2, 3, 7, 8, 6, 4];
+const q1b = [1, 2, 5, 3, 7, 8, 6, 4];
+const aaa = [1, 2, 3, 4, 5, 6, 7, 8];
 // Expected output:
-// 3
 // Too chaotic
+// 7
 
 // Test 2
-const q0 = [1, 2, 5, 3, 4, 7, 8, 6];
+const q2a = [1, 2, 5, 3, 4, 7, 8, 6];
 // Expected output:
 // 4
 
@@ -19,23 +22,49 @@ const q0 = [1, 2, 5, 3, 4, 7, 8, 6];
 
 //
 
+// function minimumBribes(q) {
+//   let count = 0;
+
+//   for (let i = 1; i <= q.length; i++) {
+//     if (q[i - 1] === i) {
+//       count += 0;
+//     } else if (q[i - 1] === i + 1) {
+//       count++;
+//       i = i += 1;
+//     } else if (q[i - 1] === i + 2) {
+//       count += 2;
+//       i = i += 2;
+//     } else {
+//       count = "Too chaotic";
+//     }
+//   }
+//   console.log(count);
+// }
+
 function minimumBribes(q) {
   let count = 0;
-  for (let i = 1; i <= q.length; i++) {
-    if (q[i - 1] === i) {
-      console.log("👍");
-    } else if (q[i - 1] === i + 1) {
+
+  // reduce each int by 1 making it easier to match up with i.
+  const line = q.map(p => p - 1);
+
+  for (let i = 0; i < line.length; i++) {
+    if (line[i] === i) {
+      count += 0;
+    } else if (line[i] === i + 1) {
       count++;
       i = i += 1;
-    } else if (q[i - 1] === i + 2) {
+    } else if (line[i] === i + 2) {
       count += 2;
       i = i += 2;
     } else {
       count = "Too chaotic";
     }
   }
-  return count;
+  console.log(count);
 }
 
-console.log(minimumBribes(q0));
-console.log(minimumBribes(q1));
+// minimumBribes(q0a);
+// minimumBribes(q0b);
+minimumBribes(q1a);
+minimumBribes(q1b);
+// 4
