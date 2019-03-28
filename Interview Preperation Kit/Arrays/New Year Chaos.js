@@ -1,4 +1,4 @@
-// Test 0 ✅
+// Test 0
 const q0a = [2, 1, 5, 3, 4];
 const q0b = [2, 5, 1, 3, 4];
 // Expected output:
@@ -22,25 +22,6 @@ const q2a = [1, 2, 5, 3, 4, 7, 8, 6];
 
 //
 
-// function minimumBribes(q) {
-//   let count = 0;
-
-//   for (let i = 1; i <= q.length; i++) {
-//     if (q[i - 1] === i) {
-//       count += 0;
-//     } else if (q[i - 1] === i + 1) {
-//       count++;
-//       i = i += 1;
-//     } else if (q[i - 1] === i + 2) {
-//       count += 2;
-//       i = i += 2;
-//     } else {
-//       count = "Too chaotic";
-//     }
-//   }
-//   console.log(count);
-// }
-
 function minimumBribes(q) {
   let count = 0;
 
@@ -48,23 +29,14 @@ function minimumBribes(q) {
   const line = q.map(p => p - 1);
 
   for (let i = 0; i < line.length; i++) {
-    if (line[i] === i) {
-      count += 0;
-    } else if (line[i] === i + 1) {
-      count++;
-      i = i += 1;
-    } else if (line[i] === i + 2) {
-      count += 2;
-      i = i += 2;
-    } else {
+    if (line[i] > i + 2) {
       count = "Too chaotic";
     }
   }
   console.log(count);
 }
 
-// minimumBribes(q0a);
-// minimumBribes(q0b);
+minimumBribes(q0a);
+minimumBribes(q0b);
 minimumBribes(q1a);
 minimumBribes(q1b);
-// 4
