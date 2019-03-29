@@ -32,11 +32,21 @@ function minimumBribes(q) {
     if (line[i] > i + 2) {
       count = "Too chaotic";
     }
+    for (let j = 0; j < line.length; j++) {
+      // find a way to start looking after the specified number...
+      if (line[i] < line[j]) {
+        count++;
+      }
+    }
   }
+
   console.log(count);
 }
 
-minimumBribes(q0a);
+// minimumBribes(q0a);
 minimumBribes(q0b);
-minimumBribes(q1a);
-minimumBribes(q1b);
+// minimumBribes(q1a);
+// minimumBribes(q1b);
+
+// key: count, How many times has this person been bribed?
+// for each num, how many numbers to the right of this num, are less than this num?
