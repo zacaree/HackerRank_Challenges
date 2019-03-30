@@ -13,6 +13,7 @@ function countSwaps(a) {
   for (let i = 0; i < a.length; i++) {
     for (let j = 0; j < a.length; j++) {
       if (a[j] > a[j + 1]) {
+        // Using es6 array destructuring to swap elements
         [a[j], a[j + 1]] = [a[j + 1], a[j]];
         swaps++;
       }
