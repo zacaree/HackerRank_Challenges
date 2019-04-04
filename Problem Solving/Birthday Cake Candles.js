@@ -14,7 +14,14 @@ const candleHeights = [3, 2, 1, 3];
 //
 
 function birthdayCakeCandles(ar) {
-  console.log(ar);
+  const sorted = ar.sort((a, b) => b - a);
+  let candles = 0;
+
+  for (let i = 0; i < ar.length; i++) {
+    if (sorted[i] === sorted[0]) candles++;
+  }
+
+  return candles;
 }
 
 console.log(birthdayCakeCandles(candleHeights));
