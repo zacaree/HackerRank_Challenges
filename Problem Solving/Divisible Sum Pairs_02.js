@@ -1,6 +1,3 @@
-// The following test failed.
-// Find out why...
-
 // Sample input
 const itemsInArr = 100;
 const divBy = 22;
@@ -113,19 +110,9 @@ const nums = [
 function divisibleSumPairs(n, k, ar) {
   let count = 0;
 
-  // Try an approach where you sort the array first.
-  // then don't look back at nums in j that come before the current i position
-  // because they won't be lower nums.
-
-  const sorted = ar.sort((a, b) => a - b);
-
-  for (let i = 0; i < ar.length; i++) {
-    for (let j = 0; j < ar.length; j++) {
-      if (sorted[i] < sorted[j]) {
-        if ((sorted[i] + sorted[j]) % k === 0) {
-          count++;
-        }
-      }
+  for (let i = 0; i < n - 1; i++) {
+    for (let j = i + 1; j < n; j++) {
+      if ((ar[i] + ar[j]) % k === 0) count++;
     }
   }
 
