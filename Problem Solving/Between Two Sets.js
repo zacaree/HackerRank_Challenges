@@ -11,17 +11,25 @@ function getTotalX(a, b) {
 
   const highA = A.slice(-1).pop();
   const lowB = B.slice(0, 1).pop();
-  const highB = B.slice(-1).pop();
+
+  let range = [];
+  for (let i = highA; i <= lowB; i++) {
+    range.push(i);
+  }
 
   for (const int of a) {
-    let matchA = [];
-    for (let i = highA; i <= lowB; i++) {
-      if (int % i)
-        // console.log(i);
-        // console.log(int);
-        console.log(i);
+    for (let i = 0; i < range.length; i++) {
+      if (range[i] % int) range.splice(i, 1);
     }
   }
+
+  for (const int of b) {
+    for (let i = 0; i < range.length; i++) {
+      if (int % range[i]) range.splice(i, 1);
+    }
+  }
+
+  return range.length;
 }
 
 getTotalX(a, b);
