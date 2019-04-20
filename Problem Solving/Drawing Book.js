@@ -12,10 +12,18 @@ const [n2, p2] = [5, 4]; // n number of pgs in book. p page to turn to.
 // Expected output
 // 0
 
-function pageCount(n, p) {}
+function pageCount(n, p) {
+  const [pages, targetPg] = [n, p];
+  // Divide pages in half and determine whether target is greater
+  // or less than the halfway point.
+  // if greater, start counting at the end.
+
+  const middle = pages / 2;
+  console.log(middle);
+}
 
 pageCount(n1, p1);
-// pageCount(n2, p2);
+pageCount(n2, p2);
 
 // ---------------------
 // Observations
