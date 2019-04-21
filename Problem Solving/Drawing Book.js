@@ -12,44 +12,24 @@ const [n2, p2] = [5, 4]; // n number of pgs in book. p page to turn to.
 // Expected output
 // 0
 
-function pageCount(n, p) {
-  const [pages, targetPg] = [n, p];
-  // Divide pages in half and determine whether target is greater
-  // or less than the halfway point.
-  // if greater, start counting at the end.
+// Sample Input
+const [n3, p3] = [6, 5]; // n number of pgs in book. p page to turn to.
+// Expected output
+// 1
 
-  const middle = pages / 2;
-  console.log(middle);
+function pageCount(n, p) {
+  const [pages, target] = [n, p];
+
+  const fromBeginning = Math.floor(target / 2);
+  let fromEnd = Math.floor((pages - target) / 2);
+
+  // Solves an issue with books that end on an even page where the target is
+  // only one less than total pages.
+  if (pages % 2 === 0 && pages - target === 1) fromEnd++;
+
+  return fromBeginning < fromEnd ? fromBeginning : fromEnd;
 }
 
-pageCount(n1, p1);
-pageCount(n2, p2);
-
-// ---------------------
-// Observations
-
-// evens are always on the left
-// 1, 2 3, 4 5, 6
-
-// *
-// could we just count by odds in either direction?
-// each count would be a page turn.
-// each step we'd evaluate whether the target num is still higher or lower.
-// *
-
-// ---------------------
-// Moving forward ↓ ↓ ↓
-
-// evens
-// pg6 / 2 = 3
-// 3 + 1 = num of pages forward
-
-// odds
-// pg5 / 2 = 2.5
-// 2.5 rounded up is 3
-// 3 is the number of pages forward
-
-// ---------------------
-// Moving backward ↓ ↓ ↓
-
-// if last num in array is even, the next num going back will be a page turn.
+console.log(pageCount(n1, p1));
+console.log(pageCount(n2, p2));
+console.log(pageCount(n3, p3));
