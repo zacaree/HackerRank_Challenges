@@ -8,14 +8,15 @@ const arr2 = [1, -3, 71, 68, 17];
 function minimumAbsoluteDifference(arr) {
   let min;
 
+  arr.sort();
+
   for (let i = 0; i < arr.length; i++) {
-    for (let j = i + 1; j < arr.length; j++) {
-      const currentDiff = Math.abs(arr[i] - arr[j]);
-      if (min === undefined || currentDiff < min) min = currentDiff;
-    }
+    const currentDiff = Math.abs(arr[i + 1] - arr[i]);
+    if (min === undefined || currentDiff < min) min = currentDiff;
+    if (min === 0) return 0;
   }
 
   return min;
 }
 
-console.log(minimumAbsoluteDifference(arr2));
+console.log(minimumAbsoluteDifference(arr1));
