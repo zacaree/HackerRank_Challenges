@@ -17,8 +17,25 @@ function luckBalance(k, contests) {
   let importantContests = [];
 
   for (let i = 0; i < contests.length; i++) {
+    // if the contest isn't important, add it to the balance
+    // else add it to importantContests
     if (contests[i][1] === 0) {
       balance += contests[i][0];
+    } else {
+      importantContests.push(contests[i][0]);
+    }
+  }
+
+  // Now sort importantContests putting highest numbers first.
+  importantContests.sort((a, b) => b - a);
+
+  // Add each value to balance until k runs out, then subtract.
+  for (let i = 0; i < importantContests.length; i++) {
+    if (k > 0) {
+      balance += importantContests[i];
+      k--;
+    } else {
+      balance -= importantContests[i];
     }
   }
 
