@@ -16,6 +16,21 @@ const note_2 = ['ive', 'got', 'some', 'coconuts'];
 // Sample Output 2
 // No --- Because Harold's magazine is missing the word 'some'.
 
-function checkMagazine(magazine, note) {}
+function checkMagazine(magazine, note) {
+  // let matches = 0;
+  // for (let i = 0; i < note.length; i++) {
+  //   let doesntMatch = 0;
+  //   for (let j = 0; j < magazine.length; j++) {
+  //     if (note[i] === magazine[j]) {
+  //       matches += 1;
+  //       break;
+  //     }
+  //   }
+  //   if (magazine.length === doesntMatch) return 'No';
+  //   if (note.length === matches) return 'Yes';
+  // }
+}
 
-console.log(checkMagazine(magazine_0, note_0));
+// console.log(checkMagazine(magazine_0, note_0));
+console.log(checkMagazine(magazine_1, note_1));
+// console.log(checkMagazine(magazine_2, note_2));
